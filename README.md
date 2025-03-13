@@ -7,7 +7,7 @@ Na další pokusy mám připravený další modul Heltec V3 (byl v akci) a na br
 
 Statická stanice na bázi Heltec V3. Navíc má snímač prostředí BME280 a napájecí obvod aby mohla být připojená na 12V.
 
-- [ ] přidat fotku
+![ohM1 na střeše](www/img/ohm1_na_strese.jpg)
 
 Zařízení je v provozu od prosince 2024. Mělo to být dočasné řešení, něco jako pokus, ale zatím jsem s tím spokojený.
 
