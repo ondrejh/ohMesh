@@ -18,6 +18,8 @@ Mobilní vysílačka na bázi Heltec V3. Navíc má GPS modul, aby mohla reporto
 
 ![ohM2 v doku](www/img/ohm2_v_doku.jpg)
 
+Víc podrobností v [adresáři ohm2](https://github.com/ondrejh/ohMesh/tree/master/ohm2#readme)
+
 # ohM3
 
 První stanice s RP2040. Zatím je ve stádiu BreadTastic Pico.
