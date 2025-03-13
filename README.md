@@ -25,3 +25,9 @@ Víc podrobností v [adresáři ohm2](https://github.com/ondrejh/ohMesh/tree/mas
 První stanice s RP2040. Zatím je ve stádiu BreadTastic Pico.
 
 ![ohM3 testovací prototyp na breadboardu - BreadTastic Pico](www/img/ohm3_breadtastic_pico.jpg)
+
+## Linky (Zatím netříděné)
+
+[Anténa ohM1 (Aliexpress)](https://www.aliexpress.com/item/1005006833587735.html?spm=a2g0o.order_list.order_list_main.131.3e601802HxDH7p)
+[Měření tlaku, vlhkosti a teploty, BME280 (Aliexpress)](https://www.aliexpress.com/item/1005004527984343.html?spm=a2g0o.order_list.order_list_main.106.3e601802HxDH7p)
+[Samostatný LoRa module SX1262 (Aliexpress)](https://www.aliexpress.com/item/1005005868418525.html?spm=a2g0o.order_list.order_list_main.59.3e601802HxDH7p)
