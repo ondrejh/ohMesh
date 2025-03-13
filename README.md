@@ -16,10 +16,10 @@ Zařízení je v provozu od prosince 2024. Mělo to být dočasné řešení, n�
 
 Mobilní vysílačka na bázi Heltec V3. Navíc má GPS modul, aby mohla reportovat polohu.
 
-- [ ] přidat fotku
+![ohM2 v doku](www/img/ohm2_v_doku.jpg)
 
 # ohM3
 
 První stanice s RP2040. Zatím je ve stádiu BreadTastic Pico.
 
-- [ ] přidat fotku
+![ohM3 testovací prototyp na breadboardu - BreadTastic Pico](www/img/ohm3_breadtastic_pico.jpg)
