@@ -1,14 +1,14 @@
 # Stanice s Raspberry PI pico ohM3
 
-Dalším mým pokusem s Meshtastikem je stanice postavená na základě Raspberry PI Pico s kontrolérem RP2040. LoRa konektivitu zde zajišťuje modul SX1262. Stanice je zatím postavená na nepájivé desce, breadboardu, takže jsem jí dal pracovní název BreadTastic Pico (ne, není to Ostravsky, bez diakritiky).
+Dalším mým pokusem s Meshtastikem je stanice postavená na základě [Raspberry PI Pico s kontrolérem RP2040](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-family). LoRa konektivitu zde zajišťuje [modul SX1262](https://www.aliexpress.com/item/1005005868418525.html?spm=a2g0o.order_list.order_list_main.59.3e601802HxDH7p). Stanice je zatím postavená na nepájivé desce, breadboardu, takže jsem jí dal pracovní název BreadTastic Pico (ne, není to Ostravsky, bez diakritiky).
 
-- [ ] doplnit schéma zapojení SX1262
-- [ ] doplnit schéma zapojení BME280
-- [ ] přidat displej
+![ohm3 původní stanice](../www/img/ohm3_breadtastic_pico.jpg)
+
+Stanici jsem později doplnil o čidlo prostředí, aby to ukazovalo nějaká pěkná čísla.
 
 ![ohm3 s čidlem BME280](../www/img/ohm3_bme280.jpg)
 
-## Připojení čidla BME280
+## Připojení čidla prostředí BME280
 
 K původnímu zapojení jsem se nejdřív pokoušel hledat správné piny pro připojení snímačů prostředí. Zdá se, že v oficiálním FW pro Meshtastic na Raspberry PI Pico není I2C pro telemetrii podporováno. Nebo prostě nevím jak. Rozhodl jsem se tedy přistoupit úpravě FW.
 
@@ -63,3 +63,11 @@ Takhle to pak vypadá, když takovou stanici vidí jiná stanice (tentokrát šl
 ![ohm3 hodnoty z čidla BME280](../www/img/ohm3_environment_values_bme280.jpg)
 
 Pokračování příště.
+
+#ToDo
+
+- [ ] doplnit schéma zapojení SX1262
+- [ ] doplnit schéma zapojení BME280
+- [ ] přidat displej
+
+
