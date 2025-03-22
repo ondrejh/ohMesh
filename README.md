@@ -24,7 +24,9 @@ Víc podrobností v [adresáři ohm2](https://github.com/ondrejh/ohMesh/tree/mas
 
 První stanice s RP2040. Zatím je ve stádiu BreadTastic Pico.
 
-![ohM3 testovací prototyp na breadboardu - BreadTastic Pico](www/img/ohm3_breadtastic_pico.jpg)
+![ohM3 testovací prototyp na breadboardu - BreadTastic Pico](www/img/ohm3_bme280.jpg)
+
+Víc podrobností v [adresáři ohm3](https://github.com/ondrejh/ohMesh/tree/master/ohm3#readme)
 
 ## Linky (Zatím netříděné)
 
