@@ -10,7 +10,7 @@ Stanici jsem později doplnil o čidlo prostředí, aby to ukazovalo nějaká p�
 
 ## Základní zapojení
 
-Úplně minimální stanice s Raspberry PI Pico potřebuje ke své funkci, kromě samotného Raspberry, už jen LoRa modul SX1262 a anténu.
+Úplně minimální stanice s Raspberry PI Pico potřebuje ke své funkci, kromě samotného [Raspberry](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-family), už jen LoRa modul [SX1262](https://www.aliexpress.com/item/1005005868418525.html?spm=a2g0o.order_list.order_list_main.59.3e601802HxDH7p) a [anténu](https://www.aliexpress.com/item/32957518009.html?spm=a2g0o.order_list.order_list_main.75.19f61802j9j96w).
 
 ![ohm3 základní zapojení](../www/img/ohm3_zakladni_zapojeni.png)
 
@@ -33,9 +33,24 @@ Pozn.: Právě jsem si všimnul, že zapojení úplně nesedí se souborem varia
 
 ## Připojení čidla prostředí BME280
 
-K původnímu zapojení jsem se nejdřív pokoušel hledat správné piny pro připojení snímačů prostředí. Zdá se, že v oficiálním FW pro Meshtastic na Raspberry PI Pico není I2C pro telemetrii podporováno. Nebo prostě nevím jak. Rozhodl jsem se tedy přistoupit úpravě FW.
+K původnímu zapojení jsem se nejdřív pokoušel hledat správné piny pro připojení snímačů prostředí. Vybral jsem si čidlo [BME280](https://www.aliexpress.com/item/1005004527984343.html?spm=a2g0o.order_list.order_list_main.127.19f61802j9j96w), které už mám připojené ke statické stanici ohM1. Při nákupu čidla je třeba vybrat variantu BME280 na 3V3. Prodejci často nabízejí take BMP280, které je mnohem levnější, ale neměří vlhkost. S Meshtastikem nicméně funguje také.
+
+Zdá se, že v oficiálním FW pro Meshtastic na Raspberry PI Pico není I2C pro telemetrii podporováno. Nebo prostě nevím jak. Rozhodl jsem se tedy přistoupit úpravě FW.
 
 Připojil jsem snímač na piny 6 a 7, kam je možné namapovat I2C1. Tyto piny jsem exlicitně uvedl ve variantě pro překlad a firmware si zkompiloval sám. Postup kompilace je uvedený na webu [meshtastic.org](https://meshtastic.org/docs/development/firmware/build/), takže uvedu jen body.
+
+Pozn.: Výběr čidla BME280 možná nebyl ten nejšťastnější. Vybral jsem ho hlavně proto, že jsem ho měl v šuplíku, a také proto, že mám stejné čidlo připojené k statické stanici ohM1. Zdá se ale, že specificky BME280, nefunguje s Raspberry PI. Uvádí se to zde: [github meshtastic firmware issue 5361](https://github.com/meshtastic/firmware/issues/5361). Chyba je opravená ve verzi FW 2.6.+, která v době, kdy jsem to zkoušel, byla ještě alfa. Každopádně, vlastním buildem FW, se toto vyřešilo.
+
+### Zapojení snímače
+
+![ohm3 zapojení snímače bme280](../www/img/ohm3_pripojeni_bme280.png)
+
+Pico | BME280
+--- | ---
+GND | GND
+3V3(OUT) | 3V3
+GP6 | SDA
+GP7 | SCL
 
 ### Úprava FW aby podporoval moduly I2C
 
