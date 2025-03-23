@@ -8,6 +8,29 @@ Stanici jsem později doplnil o čidlo prostředí, aby to ukazovalo nějaká p�
 
 ![ohm3 s čidlem BME280](../www/img/ohm3_bme280.jpg)
 
+## Základní zapojení
+
+Úplně minimální stanice s Raspberry PI Pico potřebuje ke své funkci, kromě samotného Raspberry, už jen LoRa modul SX1262 a anténu.
+
+![ohm3 základní zapojení](../www/img/ohm3_zakladni_zapojeni.png)
+
+Pico | SX1262
+--- | ---
+GND | GND
+3V3(OUT) | 3V3
+GP2 | BUSY
+GP3 | CS
+GP10 | CLK
+GP11 | MOSI
+GP12 | MISO
+GP15 | RESET
+GP20 | DIO1
+
+Zapojení vychází z [modulu SX1262 LoRa Node od WaveShare](https://www.waveshare.com/pico-lora-sx1262-868m.htm).
+
+Pozn.: Právě jsem si všimnul, že zapojení úplně nesedí se souborem varian.h. Tam je GP2 připojené na DIO2, místo na BUSY. Nicméně to funguje ...
+- [ ] zkusit zapojit podle variant.h
+
 ## Připojení čidla prostředí BME280
 
 K původnímu zapojení jsem se nejdřív pokoušel hledat správné piny pro připojení snímačů prostředí. Zdá se, že v oficiálním FW pro Meshtastic na Raspberry PI Pico není I2C pro telemetrii podporováno. Nebo prostě nevím jak. Rozhodl jsem se tedy přistoupit úpravě FW.
@@ -64,9 +87,9 @@ Takhle to pak vypadá, když takovou stanici vidí jiná stanice (tentokrát šl
 
 Pokračování příště.
 
-#ToDo
+# ToDo
 
-- [ ] doplnit schéma zapojení SX1262
+- [x] doplnit schéma zapojení SX1262
 - [ ] doplnit schéma zapojení BME280
 - [ ] přidat displej
 
