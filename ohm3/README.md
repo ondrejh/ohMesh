@@ -100,12 +100,42 @@ Takhle to pak vypadá, když takovou stanici vidí jiná stanice (tentokrát šl
 
 ![ohm3 hodnoty z čidla BME280](../www/img/ohm3_environment_values_bme280.jpg)
 
-Pokračování příště.
+## Připojení napájecího článku
+
+Ve většině aplikací bude nejspíš podobný meshtastický uzel pracovat z baterie. Toto je ve firmwaru už podporováno, stačí tedy jen připojit článek s nabíjecím modulem a pár odporů jako dělič, pro snímání napětí baterie.
+
+### Materiál
+
+- článek 18650
+- [nabíjecí modul](https://www.aliexpress.com/item/1005001688742632.html?spm=a2g0o.order_list.order_list_main.43.1a441802W3wg30)
+- odpory 100k a 200k (nejlépe přesné)
+- nějaký malý keramický kondenzátor
+- dioda (nejlépe s malým úbytkem napětí)
+
+### Zapojení
+
+![ohm3 připojení napájecí baterie](../www/img/ohm3_pripojeni_baterie.png)
+
+Do zapojení jsem také přidal diodu, kondenzátor a vypínač. Bez diody by se musel článek odpojovat, když se chceme připojit k USB na Raspberry PI. Kondenzátor je na potlačení šumu měření a vypínač se u článku vždycky hodí.
+
+Napájecí článek je umístěný ve vytisknutém držáku ([model ve Freecadu](./model/breadboard_batery_holder.FCStd), [export pro slicer](./model/breadboard_batery_holder.3fm)). Do držáku se zespodu pájkou píchnou kolíky z pinové lišty a je z toho breadtastický držák.
+
+![ohm3 s napájecím článkem](../www/img/ohm3_battery.jpg)
+
+### Funkce
+
+Takhle to pak vypadá, když ten node vidíte ze sítě meshtastic. On tam ten stav baterie byl i předtím, ale ukazoval nesmysly, protože tam prostě ten článek chyběl. Nic se nenastavuje, prostě to chodí.
+
+![ohm3 stav baterie](../www/img/ohm3_battery_status.jpg)
+
+
+Pokračování příště...
 
 # ToDo
 
 - [x] doplnit schéma zapojení SX1262
-- [ ] doplnit schéma zapojení BME280
+- [x] doplnit schéma zapojení BME280
+- [x] přidat baterku s nabíječkou
 - [ ] přidat displej
-
-
+- [ ] přidat gps přijímač
+- [ ] měření spotřeby
