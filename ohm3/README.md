@@ -128,6 +128,26 @@ Takhle to pak vypadá, když ten node vidíte ze sítě meshtastic. On tam ten s
 
 ![ohm3 stav baterie](../www/img/ohm3_battery_status.jpg)
 
+## Připojení displeje SSD1306 a tlačítka
+
+Základní firmware také přímo podporuje připojení oled displeje SSD1306 s rozlišením 128x64 pixelů. Na displeji je možné zapnout autorotaci, nebo jednotlivé stránky rotovat tlačítkem. Tak ho taky zapojím. Pro displej sice zatím aplikaci nemám, ale zkusím to, aby to bylo kompletní.
+
+### Zapojení
+
+Pico | SSD1306
+--- | ---
+GND | GND
+3V3(OUT) | 3V3
+GP4 | SDA
+GP5 | SCL
+
+![ohm3 připojení displeje SSD1306 a tlačítka](../www/img/ohm3_displej_ssd1306.png)
+
+## Funkce
+
+Ani pro funkci displeje není třeba nic nastavovat. Jen zapojit. Maximálně je možné nastavit zobrazení naměřených hodnot z čidel, nebo autorotaci displeje.
+
+![ohm3 s displejm SSD1306](../www/img/ohm3_displej.jpg)
 
 Pokračování příště...
 
@@ -136,6 +156,6 @@ Pokračování příště...
 - [x] doplnit schéma zapojení SX1262
 - [x] doplnit schéma zapojení BME280
 - [x] přidat baterku s nabíječkou
-- [ ] přidat displej
+- [x] přidat displej
 - [ ] přidat gps přijímač
 - [ ] měření spotřeby
