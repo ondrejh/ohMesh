@@ -8,6 +8,7 @@ Stanici jsem později doplnil o čidlo prostředí, aby to ukazovalo nějaká p�
 
 ![ohm3 s čidlem BME280](../www/img/ohm3_bme280.jpg)
 
+
 ## Základní zapojení
 
 Úplně minimální stanice s Raspberry PI Pico potřebuje ke své funkci, kromě samotného [Raspberry](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-family), už jen LoRa modul [SX1262](https://www.aliexpress.com/item/1005005868418525.html?spm=a2g0o.order_list.order_list_main.59.3e601802HxDH7p) a [anténu](https://www.aliexpress.com/item/32957518009.html?spm=a2g0o.order_list.order_list_main.75.19f61802j9j96w).
@@ -28,8 +29,10 @@ GP20 | DIO1
 
 Zapojení vychází z [modulu SX1262 LoRa Node od WaveShare](https://www.waveshare.com/pico-lora-sx1262-868m.htm).
 
-Pozn.: Právě jsem si všimnul, že zapojení úplně nesedí se souborem varian.h. Tam je GP2 připojené na DIO2, místo na BUSY. Nicméně to funguje ...
-- [ ] zkusit zapojit podle variant.h
+Pozn.:
+1) Všiml jsem si, že zapojení úplně nesedí se souborem varian.h. Tam je GP2 připojené na DIO2, místo na BUSY. Nicméně to funguje. Na dalším řádku se totiž uvádí ```#define SX126X_BUSY LORA_DIO2```, takže asi proto.
+2) Na breadboardu se mi odpojil GP15 - RESET, a zařízení vesele funguje dál. Kdyby bylo třeba šetřit GPIO, šlo by to asi nastavit unset.
+
 
 ## Připojení čidla prostředí BME280
 
@@ -100,6 +103,7 @@ Takhle to pak vypadá, když takovou stanici vidí jiná stanice (tentokrát šl
 
 ![ohm3 hodnoty z čidla BME280](../www/img/ohm3_environment_values_bme280.jpg)
 
+
 ## Připojení napájecího článku
 
 Ve většině aplikací bude nejspíš podobný meshtastický uzel pracovat z baterie. Toto je ve firmwaru už podporováno, stačí tedy jen připojit článek s nabíjecím modulem a pár odporů jako dělič, pro snímání napětí baterie.
@@ -128,6 +132,7 @@ Takhle to pak vypadá, když ten node vidíte ze sítě meshtastic. On tam ten s
 
 ![ohm3 stav baterie](../www/img/ohm3_battery_status.jpg)
 
+
 ## Připojení displeje SSD1306 a tlačítka
 
 Základní firmware také přímo podporuje připojení oled displeje SSD1306 s rozlišením 128x64 pixelů. Na displeji je možné zapnout autorotaci, nebo jednotlivé stránky rotovat tlačítkem. Tak ho taky zapojím. Pro displej sice zatím aplikaci nemám, ale zkusím to, aby to bylo kompletní.
@@ -141,6 +146,11 @@ GND | GND
 GP4 | SDA
 GP5 | SCL
 
+Pico | Tlačítko
+--- | ---
+GND | GND
+GP18 | BTN
+
 ![ohm3 připojení displeje SSD1306 a tlačítka](../www/img/ohm3_displej_ssd1306.png)
 
 ## Funkce
@@ -149,7 +159,20 @@ Ani pro funkci displeje není třeba nic nastavovat. Jen zapojit. Maximálně je
 
 ![ohm3 s displejm SSD1306](../www/img/ohm3_displej.jpg)
 
-Pokračování příště...
+## Připojení GPS modulu
+
+První pokus jsem udělal s GPS modulem který jsem dosud používal na Heltec V3 Nody (Ohm2 a jiné). Výsledky bohužel nebyly přesvědčivé a tak jsem objednal jiný modul, menší, podobnější modulu Waveshare Pico GPS L76B který je uváděný v souboru varian.h v adresáři rpipico-slowclock. Zdá se totiž, že udělat z raspberry pi pico maximálně univerzální node se už někdo pokusil. Výsledek je tedy nejspíš tato varinta.
+S tím sem už pozici přesvědčivě chytil. Ovšem, z lenosti, sem měl zapojenou větší anténu. S novým modulem se dodává malá, podlouhlá, s tou sem zatím neuspěl.
+
+Pico | NEO-M8N
+--- | ---
+GP0 | TX
+GP1 | RX
+GP16 | PPS - nevím na co je, snad se ho půjde zbavit
+
+![ohm3 připojení GPS modulu](../www/img/ohm3_gps_modul.png)
+
+Pokračování příště... Doplním jak to měří a vůbec...
 
 # ToDo
 
