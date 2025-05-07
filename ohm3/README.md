@@ -2,11 +2,13 @@
 
 Dalším mým pokusem s Meshtastikem je stanice postavená na základě [Raspberry PI Pico s kontrolérem RP2040](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-family). LoRa konektivitu zde zajišťuje [modul SX1262](https://www.aliexpress.com/item/1005005868418525.html?spm=a2g0o.order_list.order_list_main.59.3e601802HxDH7p). Stanice je zatím postavená na nepájivé desce, breadboardu, takže jsem jí dal pracovní název BreadTastic Pico (ne, není to Ostravsky, bez diakritiky).
 
+Toto zapojení funguje s firmwarem varianty [rpipico](https://github.com/meshtastic/firmware/tree/master/variants/rpipico).
+
 ![ohm3 původní stanice](../www/img/ohm3_breadtastic_pico.jpg)
 
-Stanici jsem později doplnil o čidlo prostředí, aby to ukazovalo nějaká pěkná čísla.
+Stanici jsem později doplnil o čidlo prostředí, aby to ukazovalo nějaká pěkná čísla. Dál taky o displej, baterku ... Teď mám v plánu GPS, aby to bylo kompletní.
 
-![ohm3 s čidlem BME280](../www/img/ohm3_bme280.jpg)
+![ohm3 s čidlem BME280](../www/img/ohm3_displej.jpg)
 
 
 ## Základní zapojení
@@ -160,6 +162,8 @@ Ani pro funkci displeje není třeba nic nastavovat. Jen zapojit. Maximálně je
 ![ohm3 s displejm SSD1306](../www/img/ohm3_displej.jpg)
 
 ## Připojení GPS modulu
+
+In progress...
 
 První pokus jsem udělal s GPS modulem který jsem dosud používal na Heltec V3 Nody (Ohm2 a jiné). Výsledky bohužel nebyly přesvědčivé a tak jsem objednal jiný modul, menší, podobnější modulu Waveshare Pico GPS L76B který je uváděný v souboru varian.h v adresáři rpipico-slowclock. Zdá se totiž, že udělat z raspberry pi pico maximálně univerzální node se už někdo pokusil. Výsledek je tedy nejspíš tato varinta.
 S tím sem už pozici přesvědčivě chytil. Ovšem, z lenosti, sem měl zapojenou větší anténu. S novým modulem se dodává malá, podlouhlá, s tou sem zatím neuspěl.
