@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+  <meta charset="UTF-8">
+  <title>Meshtastic mobile Heltec V3</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/lightbox.min.css">
+  <script src="js/lightbox-plus-iquery.min.js"></script>
+</head>
+<body>
+<article>
+
+<h1>Stavba mobilního Meshtastic nodu</h1>
+
+<h2>Úvod</h2>
+
+<p>
+Před časem sem si něco přečetl o LoRa a Meshtastic a celkem mě to zajímalo. Na zkoušku sem si tedy pořídil sadu 2 nodů Heltec V3 z Aliexpresu. Ty mě přišly jako cenově nejvýhodnější varianta, hlavně vzhledem k doporučení, pořídit si hned nejméně 2 kusy (to je pro začátek fakt dobrý nápad). Na výběr byly varianty s plastovou krabičkou a měkkou anténou, nebo bez krabičky, ale s pigtailem a náznakem opravdové antény. Vzal sem anténu s tím, že si i tak budu chtít nějaký ten obal stejně vytisknout sám. Následující buid log popisuje stavbu plnohodnotné mobilní vysílačky postavené na této bázi.
+</p>
+
+<figure>
+<a href="img/173_meshtastic_build.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Hotová stanice">
+  <img src="img/173_meshtastic_build.jpg" alt="Hotová stanice">
+</a>
+<figcaption>Hotová stanice</figcaption>
+</figure>
+
+<p>
+Samozřejmě to nebylo tak, že bych objednal všechen materiál, a na první dobrou postavil celou věc. Jde spíš o výsledek určitého vývoje, pokusu - omylu. Nejdříve jsem začal nastavením obou nodů podle různých návodů z internetu. To bylo ještě bez krabičky, jen tak na stole. Následně jsem vytisknul krabičky z printables. Jen tak, aby to bylo schované a aby to vypadalo dobře. Do krabičky se zárověň vešel i akumulátor, který jsem měl náhodou v šuplíku. Při prvním skutečném používání vysílačky jsem zjistil, že by bylo fajn mít vypínač na akumulátor. Heltec V3 je totiž dost žravá deska. Následovala GPS. Tu je u mobilního nodu vhodné mít. Najednou to začně ukazovat vzdálenosti k jiným nodům, které polohu také sdílejí. Pak následoval větší akumulátor, klip na upevnění nodu, vylepšení montáže závitovými vložkami, spojená tlačítka (taky kvůli montáži). Tou dobou už jsem měl dávno druhý node na střeše nastavený jako statický. I ten si prošel úpravami ale to je na jiné povídání.
+</p>
+
+<p>
+Nakonec jsem měl to štěstí, že mě oslovil kamarád, abych mu taky něco podobného postavil. Takže jsem mohl stavbu zdokumentovat. Snažil sem se jít trochu do detailu (ostatně to není nic světoborného), aby se to dalo snadno replikovat. Takový obrázkový step-by-step návod.
+</p>
+
+<h2>Materiál</h2>
+
+<p>
+Na stavbu je třeba vytištěná krabička, destička Heltec V3 ve verzi s pigtailem a anténou, vypínač, baterka a doporučeně GPS modul.
+</p>
+
+<figure>
+<a href="img/010_parts_needed.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Materiál">
+  <img src="img/010_parts_needed.jpg" alt="Materiál" />
+</a>
+<figcaption>Materiál</figcaption>
+</figure>
+
+<table>
+  <tr><th>originální krabička</th><td><a href="https://www.printables.com/model/466818-heltec-v3-mini-case-for-meshtastic" target="_blank">Odkaz na printables</a></td></tr>
+  <tr><th>alternativní díly</th><td>.. odkaz na alternativní díly ..</td></tr>
+  <tr><th>deska Heltec V3</th><td><a href="https://www.aliexpress.com/item/1005007383620718.html?spm=a2g0o.order_list.order_list_main.202.49a718024rZ7V0" target="_blank">Heltec V3 na Aliexpresu</td></tr>
+  <tr><th>bateka (LiPo článek)</th><td><a href="https://www.aliexpress.com/item/1005007850868686.html?spm=a2g0o.order_list.order_list_main.141.49a718024rZ7V0" target="_blank">5x 2000mAh LiPo článek an Aliexpresu</td></tr>
+  <tr><th>vypínač</th><td><a href="https://www.aliexpress.com/item/10000003088863.html?spm=a2g0o.order_list.order_list_main.167.49a718024rZ7V0" target="_blank">Hrst vypínačů - Aliexpress</a></td></tr>
+  <tr><th>modul GPS</th><td><a href="https://www.aliexpress.com/item/32832919409.html?spm=a2g0o.order_list.order_list_main.181.49a718024rZ7V0" target="_blank">GPS modul - Aliexpress</a></td></tr>
+  <tr><th>vodiče, kaptonová páska aj.</th><td>šuplíkové zásoby</td></tr>
+</table>
+
+<h2>Stavba</h2>
+
+<p>
+Úplně na začátku doporučuju vložit desku Heltec V3 do těla krabičky a vyzkoušet zda jestli fungují tlačítka. No a když nejdou, na čerstvě vytištěné krabičce nikdy nejdou, tak pilníček, skalpelíček a rozchodit. Když je totiž krabička plná drátků, vypínačů a antén, jde to o dost hůř.
+</p>
+
+<p>
+Náleduje příprava vodičů na připojení GPS modulu. Pokud GPS modul nemám, tak to samozřejmě vynechám. Vynechávání GPS už dál uvádět nebudu..
+</p>
+
+<figure>
+<a href="img/020_solder_wires_to_heltec_v3.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Příprava vodičů na připojení GPS modulu">
+  <img src="img/020_solder_wires_to_heltec_v3.jpg" alt="Příprava vodičů na připojení GPS modulu" />
+</a>
+<figcaption>Příprava vodičů na připojení GPS modulu</figcaption>
+</figure>
+<p>
+Tady je důležité, aby napájecí vodiče byly připojené zvrchu desky (tam kde je displej), protože je v tom místě deska podepřená tělem krabičky. Komunikační vodiče se mi naopak osvědčilo pájet zespodu.
+</p>
+
+<p>
+Dalším krokem je montáž vypínače a pigtailu antény.
+</p>
+
+<figure>
+<a href="img/030_mount_switch.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Montáž vypínače">
+  <img src="img/030_mount_switch.jpg" alt="Montáž vypínače" />
+</a>
+<figcaption>Montáž vypínače</figcaption>
+</figure>
+<p>
+Na vypínač je třeba extra malé vruty. Třeba z mikroserva, nebo podobně.
+</p>
+
+<figure>
+<a href="img/040_mount_antena_pigtail.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Montáž antény">
+  <img src="img/040_mount_antena_pigtail.jpg" alt="Montáž antény" />
+</a>
+<figcaption>Montáž antény</figcaption>
+</figure>
+<p>
+Pigtail musí pěkně zapadnout do krabičky. Zvrchu se pak dotáhne matkou, případně je možné použít některou z dodaných podložek.
+</p>
+
+<p>
+Všechnu elektroniku po umístění do krabičky pojišťuju kapkou tavného lepidla. Není to nutné, protože v zavřené krabičce drží i tak, ale je to praktické při montáži.
+</p>
+
+<figure>
+<a href="img/050_insert_heltec_v3.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Umístění desky Heltec V3">
+  <img src="img/050_insert_heltec_v3.jpg" alt="Umístění desky Heltec V3" />
+</a>
+<figcaption>Umístění desky Heltec V3</figcaption>
+</figure>
+<p>
+Deska Heltec V3, v rozích zakápnutá lepidlem.
+</p>
+
+<figure>
+<a href="img/060_insert_gps_antena.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Umístění antény GPS">
+  <img src="img/060_insert_gps_antena.jpg" alt="Umístění antény GPS" />
+</a>
+<figcaption>Umístění antény GPS</figcaption>
+</figure>
+<p>
+Anténa GPS, také pojištěná kapkou tavného lepidla. spodní krycí plech je navíc dobré přelepit kaptonovou páskou, aby se nedotýkal s GPS modulem. GPS anténa lícuje se spodkem těla krabičky. Kabel antény směřuje vlevo.
+</p>
+
+<p>
+Před umístěním GPS modulu je vhodné porovnat vodiče na obou stranách desky.
+</p>
+
+<figure>
+<a href="img/070_bottom_wire_harness.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Rozmístění vodičů zespodu desky">
+  <img src="img/070_bottom_wire_harness.jpg" alt="Rozmístění vodičů zespodu desky" />
+</a>
+<figcaption>Rozmístění vodičů zespodu desky</figcaption>
+</figure>
+
+<figure>
+<a href="img/080_capton_tape.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Podlepení GPS modulu kaptonovou páskou">
+  <img src="img/080_capton_tape.jpg" alt="Podlepení GPS modulu kaptonovou páskou" />
+</a>
+<figcaption>Podlepení GPS kaptonovou páskou</figcaption>
+</figure>
+<p>
+Do místa kam přijde GPS modul nalepím kaptonovou pásku abych zabráníl dotyku obou desek.
+</p>
+
+<figure>
+<a href="img/090_insert_gps_trim_wires.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Vložení GPS modulu a zakrácení vodičů">
+  <img src="img/090_insert_gps_trim_wires.jpg" alt="Vložení GPS modulu a zakrácení vodičů" />
+</a>
+<figcaption>Vložení GPS modulu a zkrácení vodičů</figcaption>
+</figure>
+<p>
+A umístím modul. GPS modul nemá přesně dané místo, ale i tak pasuje do krabičky celkem dobře. Také je vhodné ho zajisti kapkou tavného lepidla. Podle umístění pak upravím délku vodičů a ocínuju jejich konce.
+</p>
+
+<figure>
+<a href="img/100_solder_wires_to_gps.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Připájení GPS modulu">
+  <img src="img/100_solder_wires_to_gps.jpg" alt="Připájení GPS modulu" />
+</a>
+<figcaption>Připájení GPS modulu</figcaption>
+<figure>
+<p>
+Takhe pak vypadá GPS modul umístěný a připájený.
+</p>
+
+<p>
+V dalším kroku zapojím antény na GPS a LoRa. Vodiče k anténám jsou miniaturní koaxiály. Proto by neměly mít ostré úhly a nebo být příliš zamotané.
+</p>
+
+<figure>
+<a href="img/110_connect_lora_antena.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Připojení antény LoRa">
+  <img src="img/110_connect_lora_antena.jpg" alt="Připojení antény LoRa" />
+</a>
+<figcaption>Připojení antény LoRa</figcaption>
+</figure>
+
+<figure>
+<a href="img/120_connect_gps_antena.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Připojení GPS antény">
+  <img src="img/120_connect_gps_antena.jpg" alt="Připojení GPS antény" />
+</a>
+<figcaption>Připojení antény GPS modulu</figcaption>
+</figure>
+
+<p>
+Nyní je možné zadělat přední kryt krabičky. Před tím je nutné porovnat vodiče a anténní vedení, aby nepřekážely zacvaknutí krabičky. To je možné snadno vyzkoušet i bez tlačítek.
+</p>
+
+<figure>
+<a href="img/130_prepare_front_cover.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Příprava předního krytu">
+  <img src="img/130_prepare_front_cover.jpg" alt="Příprava předního krytu" />
+</a>
+<figcaption>Příprava předního krytu</figcaption>
+</figure>
+<p>
+Příprava předního krytu spočívá ve vložení tlačítek. Proti originálním volným tlačítkům velmi doporučuji svoje upravená, spojená tenkým páskem. Ohromě to usnadňuje montáž.
+</p>
+
+<figure>
+<a href="img/140_insert_front_cover.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Vložení předního krytu">
+  <img src="img/140_insert_front_cover.jpg" alt="Vložení předního krytu" />
+</a>
+<figcaption>Vložení předního krytu</figcaption>
+</figure>
+<p>
+A krabičku zavřít. Vrchní kryt musí doléhat na střední díl a obě tlačítka musejí jít stisknout a uvolnit s citeným kliknutím.
+</p>
+
+<p>
+Posledním krokem před dokončením stanice je montáž baterie.
+</p>
+
+<figure>
+<a href="img/150_prepare_battery.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Příprava baterie">
+  <img src="img/150_prepare_battery.jpg" alt="Příprava baterie" />
+</a>
+<figcaption>Příprava baterie</figcaption>
+</figure>
+<p>
+K zápornému pólu baterie (čkánku) připájím napájecí kablík dodaný k desce Heltec V3 a spoj zaizoluju. Kladný pól nechám rozpojený, jen konce ocínuju.
+</p>
+
+<figure>
+<a href="img/160_solder_battery_to_switch.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Připájení baterie">
+  <img src="img/160_solder_battery_to_switch.jpg" alt="Připájení baterie" />
+</a>
+<figcaption>Připájení baterie</figcaption>
+</figure>
+<p>
+Konce baterie pak připájím na připravený vypínač. Tím je vše zapojeno a je možné baterku vložit do zadního krytu krabičky a krabičku sešroubovat. A je hotovo. Tedy mechanicky. Nastavení zase jinde.
+</p>
+
+<figure>
+<a href="img/171_meshtastic_build.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Hotová stanice">
+  <img src="img/171_meshtastic_build.jpg" alt="Hotová stanice">
+</a>
+</figure>
+
+<figure>
+<a href="img/172_meshtastic_build.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Hotová stanice">
+  <img src="img/172_meshtastic_build.jpg" alt="Hotová stanice">
+</a>
+</figure>
+
+<figure>
+<a href="img/174_meshtastic_build.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Hotová stanice">
+  <img src="img/174_meshtastic_build.jpg" alt="Hotová stanice">
+</a>
+</figure>
+
+<figure>
+<a href="img/170_meshtastic_build.jpg" data-lightbox="montaz_mobilni_stanice" data-title="Hotová stanice">
+  <img src="img/170_meshtastic_build.jpg" alt="Hotová stanice">
+</a>
+</figure>
+
+</article>
+</body>
+</html>
