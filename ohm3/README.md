@@ -2,11 +2,14 @@
 
 Dalším mým pokusem s Meshtastikem je stanice postavená na základě [Raspberry PI Pico s kontrolérem RP2040](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-family). LoRa konektivitu zde zajišťuje [modul SX1262](https://www.aliexpress.com/item/1005005868418525.html?spm=a2g0o.order_list.order_list_main.59.3e601802HxDH7p). Stanice je zatím postavená na nepájivé desce, breadboardu, takže jsem jí dal pracovní název BreadTastic Pico (ne, není to Ostravsky, bez diakritiky).
 
+Toto zapojení funguje s firmwarem varianty [rpipico](https://github.com/meshtastic/firmware/tree/master/variants/rpipico).
+
 ![ohm3 původní stanice](../www/img/ohm3_breadtastic_pico.jpg)
 
-Stanici jsem později doplnil o čidlo prostředí, aby to ukazovalo nějaká pěkná čísla.
+Stanici jsem později doplnil o čidlo prostředí, aby to ukazovalo nějaká pěkná čísla. Dál taky o displej, baterku ... Teď mám v plánu GPS, aby to bylo kompletní.
 
-![ohm3 s čidlem BME280](../www/img/ohm3_bme280.jpg)
+![ohm3 s čidlem BME280](../www/img/ohm3_displej.jpg)
+
 
 ## Základní zapojení
 
@@ -28,8 +31,10 @@ GP20 | DIO1
 
 Zapojení vychází z [modulu SX1262 LoRa Node od WaveShare](https://www.waveshare.com/pico-lora-sx1262-868m.htm).
 
-Pozn.: Právě jsem si všimnul, že zapojení úplně nesedí se souborem varian.h. Tam je GP2 připojené na DIO2, místo na BUSY. Nicméně to funguje ...
-- [ ] zkusit zapojit podle variant.h
+Pozn.:
+1) Všiml jsem si, že zapojení úplně nesedí se souborem varian.h. Tam je GP2 připojené na DIO2, místo na BUSY. Nicméně to funguje. Na dalším řádku se totiž uvádí ```#define SX126X_BUSY LORA_DIO2```, takže asi proto.
+2) Na breadboardu se mi odpojil GP15 - RESET, a zařízení vesele funguje dál. Kdyby bylo třeba šetřit GPIO, šlo by to asi nastavit unset.
+
 
 ## Připojení čidla prostředí BME280
 
@@ -100,12 +105,84 @@ Takhle to pak vypadá, když takovou stanici vidí jiná stanice (tentokrát šl
 
 ![ohm3 hodnoty z čidla BME280](../www/img/ohm3_environment_values_bme280.jpg)
 
-Pokračování příště.
+
+## Připojení napájecího článku
+
+Ve většině aplikací bude nejspíš podobný meshtastický uzel pracovat z baterie. Toto je ve firmwaru už podporováno, stačí tedy jen připojit článek s nabíjecím modulem a pár odporů jako dělič, pro snímání napětí baterie.
+
+### Materiál
+
+- článek 18650
+- [nabíjecí modul](https://www.aliexpress.com/item/1005001688742632.html?spm=a2g0o.order_list.order_list_main.43.1a441802W3wg30)
+- odpory 100k a 200k (nejlépe přesné)
+- nějaký malý keramický kondenzátor
+- dioda (nejlépe s malým úbytkem napětí)
+
+### Zapojení
+
+![ohm3 připojení napájecí baterie](../www/img/ohm3_pripojeni_baterie.png)
+
+Do zapojení jsem také přidal diodu, kondenzátor a vypínač. Bez diody by se musel článek odpojovat, když se chceme připojit k USB na Raspberry PI. Kondenzátor je na potlačení šumu měření a vypínač se u článku vždycky hodí.
+
+Napájecí článek je umístěný ve vytisknutém držáku ([model ve Freecadu](./model/breadboard_batery_holder.FCStd), [export pro slicer](./model/breadboard_batery_holder.3fm)). Do držáku se zespodu pájkou píchnou kolíky z pinové lišty a je z toho breadtastický držák.
+
+![ohm3 s napájecím článkem](../www/img/ohm3_battery.jpg)
+
+### Funkce
+
+Takhle to pak vypadá, když ten node vidíte ze sítě meshtastic. On tam ten stav baterie byl i předtím, ale ukazoval nesmysly, protože tam prostě ten článek chyběl. Nic se nenastavuje, prostě to chodí.
+
+![ohm3 stav baterie](../www/img/ohm3_battery_status.jpg)
+
+
+## Připojení displeje SSD1306 a tlačítka
+
+Základní firmware také přímo podporuje připojení oled displeje SSD1306 s rozlišením 128x64 pixelů. Na displeji je možné zapnout autorotaci, nebo jednotlivé stránky rotovat tlačítkem. Tak ho taky zapojím. Pro displej sice zatím aplikaci nemám, ale zkusím to, aby to bylo kompletní.
+
+### Zapojení
+
+Pico | SSD1306
+--- | ---
+GND | GND
+3V3(OUT) | 3V3
+GP4 | SDA
+GP5 | SCL
+
+Pico | Tlačítko
+--- | ---
+GND | GND
+GP18 | BTN
+
+![ohm3 připojení displeje SSD1306 a tlačítka](../www/img/ohm3_displej_ssd1306.png)
+
+## Funkce
+
+Ani pro funkci displeje není třeba nic nastavovat. Jen zapojit. Maximálně je možné nastavit zobrazení naměřených hodnot z čidel, nebo autorotaci displeje.
+
+![ohm3 s displejm SSD1306](../www/img/ohm3_displej.jpg)
+
+## Připojení GPS modulu
+
+In progress...
+
+První pokus jsem udělal s GPS modulem který jsem dosud používal na Heltec V3 Nody (Ohm2 a jiné). Výsledky bohužel nebyly přesvědčivé a tak jsem objednal jiný modul, menší, podobnější modulu Waveshare Pico GPS L76B který je uváděný v souboru varian.h v adresáři rpipico-slowclock. Zdá se totiž, že udělat z raspberry pi pico maximálně univerzální node se už někdo pokusil. Výsledek je tedy nejspíš tato varinta.
+S tím sem už pozici přesvědčivě chytil. Ovšem, z lenosti, sem měl zapojenou větší anténu. S novým modulem se dodává malá, podlouhlá, s tou sem zatím neuspěl.
+
+Pico | NEO-M8N
+--- | ---
+GP0 | TX
+GP1 | RX
+GP16 | PPS - nevím na co je, snad se ho půjde zbavit
+
+![ohm3 připojení GPS modulu](../www/img/ohm3_gps_modul.png)
+
+Pokračování příště... Doplním jak to měří a vůbec...
 
 # ToDo
 
 - [x] doplnit schéma zapojení SX1262
-- [ ] doplnit schéma zapojení BME280
-- [ ] přidat displej
-
-
+- [x] doplnit schéma zapojení BME280
+- [x] přidat baterku s nabíječkou
+- [x] přidat displej
+- [ ] přidat gps přijímač
+- [ ] měření spotřeby
