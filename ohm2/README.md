@@ -44,7 +44,7 @@ Modul Heltec V3 je třeba vybrat správnou frekvenci 868MHz a také variantu bez
 
 # Antény
 
-Původní anténa dodávaná s module Heltec V3 je pěkně malá a vícemeně se mi zdála použitelná. Měl jsem ji jak na první verzi [ohM1 (pevná stanice na střeše)](../ohm1/README.md), tak na mobilní ohM2 (o které píšu tady). Na ohM1 jsem ale přesto pořídil lepší anténu. Podotýkám, že nemám žádnou možnost objektivního srovnání měřením - chtělo by to třeba NanoVNA. Vycházel jsem proto z toho, že původní krátká je prostě jen 1/8λ a 1/4λ nebo dokonce 1/2λ musí být prostě lepší. A také z doporučení na [www.czmesh.cz](www.czmesh.cz).
+Původní anténa dodávaná s module Heltec V3 je pěkně malá a vícemeně se mi zdála použitelná. Měl jsem ji jak na první verzi [ohM1 (pevná stanice na střeše)](../ohm1/README.md), tak na mobilní ohM2 (o které píšu tady). Na ohM1 jsem ale přesto pořídil lepší anténu. Podotýkám, že nemám žádnou možnost objektivního srovnání měřením - chtělo by to třeba NanoVNA. Vycházel jsem proto z toho, že původní krátká je prostě jen 1/8λ a 1/4λ nebo dokonce 1/2λ musí být prostě lepší. A také z doporučení na [www.czmesh.cz](https://www.czmesh.cz).
 
 Pro statický node ohM1 jsem zatím zvolil [dlouhou pevnou anténu z alíku](https://www.aliexpress.com/item/1005006833587735.html?spm=a2g0o.order_list.order_list_main.161.4ef218025F7g4x). V objednávce přišli zrovna dvě, takže jsem to mohl zkusit i na mobilní stanici ohM2. A byl to velký rozdíl, akorát že anténa je fakt velká. Mnohem větší než vysílačka.
 
