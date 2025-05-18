@@ -42,6 +42,21 @@ V pouzdře je také docela velký LiPo článek 2000mAh, aby, i přes žravost H
 
 Modul Heltec V3 je třeba vybrat správnou frekvenci 868MHz a také variantu bez krabičky a s anténou a pigtailem.
 
+# Antény
+
+Původní anténa dodávaná s module Heltec V3 je pěkně malá a vícemeně se mi zdála použitelná. Měl jsem ji jak na první verzi [ohM1 (pevná stanice na střeše)](../ohm1/README.md), tak na mobilní ohM2 (o které píšu tady). Na ohM1 jsem ale přesto pořídil lepší anténu. Podotýkám, že nemám žádnou možnost objektivního srovnání měřením - chtělo by to třeba NanoVNA. Vycházel jsem proto z toho, že původní krátká je prostě jen 1/8λ a 1/4λ nebo dokonce 1/2λ musí být prostě lepší. A také z doporučení na [www.czmesh.cz](www.czmesh.cz).
+
+Pro statický node ohM1 jsem zatím zvolil [dlouhou pevnou anténu z alíku](https://www.aliexpress.com/item/1005006833587735.html?spm=a2g0o.order_list.order_list_main.161.4ef218025F7g4x). V objednávce přišli zrovna dvě, takže jsem to mohl zkusit i na mobilní stanici ohM2. A byl to velký rozdíl, akorát že anténa je fakt velká. Mnohem větší než vysílačka.
+
+Jako kompromis jsem zkusil [delší prutovou ohebnou anténu, taky z alíku](https://www.aliexpress.com/item/1005004607615001.html?spm=a2g0o.order_list.order_list_main.41.4ef218025F7g4x). Ta je mnohem lehčí a navíc je ohebná. Doporučuju.
+
+Ceny těhto antén se hrozně mění a málokdy člověk narazí něco fakt rozumného (je to přece jen drát). Celkem by mě zajímalo, čím se to řídí. Asi jak se vyspí čínský radiotelekomunikační úřad. Ale jak píšu, stojí to za to.
+
+Abych nebyl za úplného ignoranta, i když o anténách nic nevím: Původní anténa je hustá spirála délky zhruba 1/8λ. Spirála je tak hustá, že délka drátu bude minimálně 1/2λ, možná víc, ale pak netuším proč. Tedy compact helical. Ostatní jsou variace na tohle téma, nebo přímo prutovky. Ta pevná dlouhá lomená je určitě 1/2λ, ale dovnitř nikdo nevidí. Tak pružná je z trochou fantazie zkrácena 1/2λ, za tu cenu snad i s nějakým filtrovým elementem. A nebo je tak drahá, aby si evropan myslel, že je kvalitní.
+
+Pro pobavení, pokud někomu ty braifarty víše nestačily, bych tady ještě uvedl pěkný článek a odkaz na [HackADay](https://hackaday.com/2025/02/13/what-the-well-dressed-radio-hacker-is-wearing-this-season/), aneb jak vyrobit kravatu, která funguje jako anténa na meshtastic. Kromě krásného módního doplňku, tam pěkně dokumentuje použití NanoVNA pro skutečnou kvalifikaci antén ... No snad příště.
+
+
 # Galerie ze stavby nodu
 
 Stejné fotky jsou součástí [html dokumentu](../www/heltec_v3_mobile_build.html) v [adresáři www](../www). Stačí tedy stáhnout repozitář, v adresáři www spustit skript get_depend.py, který stáhne knihovnu lightbox použitou na galerii, a prohlížet i s kecama co jsem tam dopsal. Jinak taky .. bez keců.
