@@ -24,7 +24,9 @@ Pro lepší komfort užívání jsem si k vysílačce dodělal nabíjecí dok. V
 
 ![model doku](img/holder.png)
 
-Model doku se také skládá ze dvou částí. Jedna je samotný stojan, druhá je zátka, kterou se napájecí USB kabel zatěsní do stojanu. Zátka jde zasunout dobře, ale zároveň drží na místě a tím drží i kabel. Bohužel už stený kabel, ohnutý dozadu, nemůžu sehnat. Takže to budu muset předělat, protože bych si chtěl pořídit ještě alespoň jeden dok do práce.
+Model doku se také skládá ze dvou částí. Jedna je samotný stojan, druhá je zátka, kterou se napájecí USB kabel zatěsní do stojanu. Zátka jde zasunout dobře, ale zároveň drží na místě a tím drží i kabel. Bohužel už stený kabel, ohnutý dozadu, nemůžu sehnat. ~~Takže to budu muset předělat, protože bych si chtěl pořídit ještě alespoň jeden dok do práce.~~ Takže sem to předělal, nové modely už tady jsou.
+
+- [nabíjecí kabely z Aliexpresu](https://www.aliexpress.com/item/1005008331618829.html?spm=a2g0o.order_list.order_list_main.5.7a861802aBEhtq), které pasují do nové verze a zatím se dají objednat (než mi to zase někdo zničí).
 
 Kromě základní funkce Meshtastic nodu je zapojení doplněné o GPS čip. To je kvůli možnosti reportovat polohu. Na displeji se pak také ukazuje vzdálenost od ostatních nodů, které mají polohu také zapnutou.
 
