@@ -62,7 +62,7 @@ Pro pobavení, pokud někomu ty braifarty víše nestačily, bych tady ještě u
 
 Máme tu konec června, aktuální FW Meshtastic 2.6.11. Na vysílačce ohM2 mám 2.5.15. Je tedy na čase zkusit update. Když totiž všechno funguje, je to nuda.
 
-1) Záloha nastavení
+## 1) Záloha nastavení
 
 Připojím vysílačku k PC, nebo něčemu co umí [Meshtastic python CLI](meshtastic.org/docs/software/python/cli). Podle návodu na webu [meshtastic.org v sekci Configuration/Radio Config/Security, úplně dole](meshtastic.org/docs/configuration/radio/security/#security-keys--backup-and-restore) - kdo by to byl tam hledal - udělám kompletní zálohu nastavení nodu. Tedy nejdůležitější jsou opravdu ty security věci, jako klíče.
 
@@ -107,7 +107,7 @@ Teď už skutečně nic nebrání záloze nastavení nodu.
 meshtastic --serial /dev/ttyUSB0 --export-config > 20250627_ohm2_backup.yaml
 ```
 
-2) Nahrání nového FW
+## 2) Nahrání nového FW
 
 Asi nejsnazší způsob je pomocí webu [Meshtastic Web Flasher](flasher.meshtastic.org). Je k tomu ale třeba nějký prohlížeč, který podporuje WEB serial. Tedy Chromium, Chrome nebo Edge.
 
@@ -135,13 +135,15 @@ Poznámka: Pokud se node nechce z nějkého důvodu připojit, je dobré zkusit 
 
 Mě se to samozřejmě nepovedlo, hlavně proto, že jsem lovil ty screenshoty a přeskakoval z jednoho okna do druhého. Poznal jsem to hned, protože po mě nod po připojení k telefonu chtěl nastavit region. Udělám tedy Full Flash Erase a obnovím nastavení nodu ze zálohy.
 
-## Obnovení nastavení ze zálohy:
+## 3. Obnovení nastavení ze zálohy
+
+Pokud je třeba, a to je protože jsem to zvrtal, obnovím nastavení nodu ze zálohy, pomocí příkazu python meshtastic CLI.
 
 ```
 meshtastic --serial /dev/ttyUSB0 --configure 20250627_ohm2_backup.yaml
 ```
 
-Uf. Hotovo. Kanály zase mám, jméno taky, na svoje nody se dovolám, takže se nezměnily klíče. Region se tedy musel nastavit a zařízení znovu spárovat s telefonem. Jo a krátké jméno sem taky musel nastavit. To je všechno tím Full Erase. Tak jednoduché to mohlo být ... No ale teď mám alespoň návod.
+Uf. Hotovo. Kanály zase mám, jméno taky, na svoje nody se dovolám, takže se nezměnily klíče. Region se tedy musel nastavit a zařízení znovu spárovat s telefonem. Jo a krátké jméno sem taky musel nastavit. No a GPS, a ještě pár drobností. To je všechno tím Full Erase. Tak jednoduché to mohlo být ... No ale teď mám alespoň návod na upgrade FW. Asi je na čase konečně vyrobit návod na kompletní nastavení nodu.
 
 # Galerie ze stavby nodu
 
