@@ -58,6 +58,90 @@ Abych nebyl za úplného ignoranta, i když o anténách nic nevím: Původní a
 
 Pro pobavení, pokud někomu ty braifarty víše nestačily, bych tady ještě uvedl pěkný článek a odkaz na [HackADay](https://hackaday.com/2025/02/13/what-the-well-dressed-radio-hacker-is-wearing-this-season/), aneb jak vyrobit kravatu, která funguje jako anténa na meshtastic. Kromě krásného módního doplňku, tam pěkně dokumentuje použití NanoVNA pro skutečnou kvalifikaci antén ... No snad příště.
 
+# Aktualizace FW
+
+Máme tu konec června, aktuální FW Meshtastic 2.6.11. Na vysílačce ohM2 mám 2.5.15. Je tedy na čase zkusit update. Když totiž všechno funguje, je to nuda.
+
+1) Záloha nastavení
+
+Připojím vysílačku k PC, nebo něčemu co umí [Meshtastic python CLI](meshtastic.org/docs/software/python/cli). Podle návodu na webu [meshtastic.org v sekci Configuration/Radio Config/Security, úplně dole](meshtastic.org/docs/configuration/radio/security/#security-keys--backup-and-restore) - kdo by to byl tam hledal - udělám kompletní zálohu nastavení nodu. Tedy nejdůležitější jsou opravdu ty security věci, jako klíče.
+
+```meshtastic --export-config > config_backup.yaml```
+
+Tedy ono je nejdřív dobré se k tomu vůbec skusit připojit.
+
+```meshtastic --info```
+
+V tuto chvíli můžu zjitit, například, že nemám nainstalovaný meshtastic CLI (to tady popisovat nebudu). Nebo, že meshtastic CLI nemůže zařízení najít. Nebo jako já, že mám CLI starší a bylo by dobré ho zaktualizovat.
+
+Když to nejde najít, tak CLI vypíše:
+
+```
+$ meshtastic --info
+No Serial Meshtastic device detected, attempting TCP connection on localhost.
+Error connecting to localhost:[Errno 111] Connection refused
+```
+
+Stačí pak obvykle zadat správný sériový port:
+
+```
+$ meshtastic --serial /dev/ttyUSB0 --info
+Connected to radio
+
+Owner: ohMesh02📟 (ohM2)
+
+...
+
+*** A newer version v2.6.4 is available! Consider running "pip install --upgrade meshtastic" ***
+```
+
+A hláška na konci výpisu mi říká, že je novější verze meshtastic CLI, a jak jí získat. Takže, nejdřív upgrade CLI.
+
+```
+pip install --upgrade meshtastic
+```
+
+Teď už skutečně nic nebrání záloze nastavení nodu.
+
+```
+meshtastic --serial /dev/ttyUSB0 --export-config > 20250627_ohm2_backup.yaml
+```
+
+2) Nahrání nového FW
+
+Asi nejsnazší způsob je pomocí webu [Meshtastic Web Flasher](flasher.meshtastic.org). Je k tomu ale třeba nějký prohlížeč, který podporuje WEB serial. Tedy Chromium, Chrome nebo Edge.
+
+- vyberu zařízení Heltec V3
+- zvolím poslední Betu
+- kliknu na Flash
+
+![Web Flasher](img/web_flasher_select.png)
+
+V následujícím dialogu zvolím Update. Nezaškrtávám Full Flash Erase, protože mám stále naději, že to projde korektně a nebudu muset obnovovat nastavení nodu.
+
+![Web Flasher update](img/web_flasher_connect.png)
+
+Následuje okno s výběrem portu:
+
+![Web Flasher port](img/web_flasher_port.png)
+
+A pak pár minut nahrávání a success dialog, tedy v lepším případě.
+
+![Web Flasher success](img/web_flasher_success.png)
+
+Pokud node funguje jak má, pamatuje si svoje jméno a nastavené kanály, je všechno v pořádku.
+
+Poznámka: Pokud se node nechce z nějkého důvodu připojit, je dobré zkusit ho připojit a odpojit fyzicky, nebo také vypnout a zapnout tab s web flaherem. Obvykle je totiž již někde port připojený a druhé připojení není možné.
+
+Mě se to samozřejmě nepovedlo, hlavně proto, že jsem lovil ty screenshoty a přeskakoval z jednoho okna do druhého. Poznal jsem to hned, protože po mě nod po připojení k telefonu chtěl nastavit region. Udělám tedy Full Flash Erase a obnovím nastavení nodu ze zálohy.
+
+## Obnovení nastavení ze zálohy:
+
+```
+meshtastic --serial /dev/ttyUSB0 --configure 20250627_ohm2_backup.yaml
+```
+
+Uf. Hotovo. Kanály zase mám, jméno taky, na svoje nody se dovolám, takže se nezměnily klíče. Region se tedy musel nastavit a zařízení znovu spárovat s telefonem. Jo a krátké jméno sem taky musel nastavit. To je všechno tím Full Erase. Tak jednoduché to mohlo být ... No ale teď mám alespoň návod.
 
 # Galerie ze stavby nodu
 
