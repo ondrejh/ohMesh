@@ -2,7 +2,7 @@
 
 Statická stanice na bázi Heltec V3. Navíc má snímač prostředí BME280 a napájecí obvod aby mohla být připojená na 12V.
 
-![ohM1 na střeše](www/img/ohm1_na_strese.jpg)
+![ohM1 na střeše](../www/img/ohm1_na_strese.jpg)
 
 Zařízení je v provozu od prosince 2024. Mělo to být dočasné řešení, něco jako pokus, ale zatím jsem s tím spokojený.
 
@@ -12,15 +12,15 @@ Po více jak půl roce provozu jsem se rozhodl updatovat FW. Aktuální verze (�
 
 Prvním problémem bylo sundání stanice ze střechy. Malinkaté závitové vložky M3 to v kombinaci s rezivými příliš dlouhými šrouby nedaly a až na jednu se protočily. Jiné nářadí než imbus jsem na střeše neměl (typicky), takže jsem držák odpáčil.
 
-![ohM1 prasklý držák, protočené vložky](ohm1/oprava/ohm1_praskly_drzak.jpg)
+![ohM1 prasklý držák, protočené vložky](oprava/ohm1_praskly_drzak.jpg)
 
 Do budoucna by to chtělo něco s pantem na jeden šroub, nejlépe křídlovku. Taky materiál by to chtělo jiný. PETG na sluníčku přece jen dost křehne. No, příště. Teď jsem jen vytisknul novou sponu držáku.
 
-![ohM1 nová spona držáku](ohm1/oprava/ohm1_novy_drzak.jpg)
+![ohM1 nová spona držáku](oprava/ohm1_novy_drzak.jpg)
 
 Závitové vložky jsem vytavil ven a nahradil většími M4, které tam snad budou lépe držet.
 
-![ohM1 nové vložky](ohm1/oprava/ohm1_nove_vlozky.jpg)
+![ohM1 nové vložky](oprava/ohm1_nove_vlozky.jpg)
 
 Také jsem chtěl dát kratší šrouby, aby tolik netrčely a nerezivěly. V dané délce měli "jen" nerez - no paráda, to by mohlo být řešení.
 
@@ -40,7 +40,7 @@ Update FW popisuju [u nodu ohm2](https://github.com/ondrejh/ohMesh/tree/master/o
 
 ## Hotovo
 
-![ohM1 po servisu](ohm1/oprava/ohm1_hotovo.jpg)
+![ohM1 po servisu](oprava/ohm1_hotovo.jpg)
 
 Stanice má aktuální FW, je zkontrolovaná, zatěsněná a snímač prostředí je snad lépe zabezpečený... tak uvidíme.
 
