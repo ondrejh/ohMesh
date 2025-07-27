@@ -28,6 +28,12 @@ První stanice s RP2040. Zatím je ve stádiu BreadTastic Pico.
 
 Víc podrobností v [adresáři ohm3](https://github.com/ondrejh/ohMesh/tree/master/ohm3#readme)
 
+# ohM4
+
+Node na bázi Seeed Xiao NRF52840 Kit. S ambicí nahradit žravý ohM2.
+
+Víc podrobností v [adresáři ohm4](https://github.com/ondrejh/ohMesh/tree/master/ohm4#readme)
+
 ## Linky (Zatím netříděné)
 
 [Anténa ohM1 (Aliexpress)](https://www.aliexpress.com/item/1005006833587735.html?spm=a2g0o.order_list.order_list_main.131.3e601802HxDH7p)
