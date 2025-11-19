@@ -1,3 +1,5 @@
 simple_mesh/*.bak
 simple_mesh/*bak
 simple_mesh/simple_mesh-backups/
+simple_mesh/gerber/simple_mesh-job.gbrjob
+simple_mesh/gerber/simple_mesh.zip
