@@ -44,6 +44,18 @@ Update FW popisuju [u nodu ohm2](https://github.com/ondrejh/ohMesh/tree/master/o
 
 Stanice má aktuální FW, je zkontrolovaná, zatěsněná a snímač prostředí je snad lépe zabezpečený... tak uvidíme.
 
+# Oprava nabíjení
+
+Zhruba v půlce srpna 2025 mi přestala fungovat statická stanice ohMesh1📟 (ohM1). Po sundání ze střechy jsem zjistil, že nabíjecí LED (oranžová) jen mžourá a stanice se nejspíš pouze velmi rychle restartuje. Zajímavé bylo, že ji šlo flashnout pomocí Meshtastic Web Flasher, takže to asi zas taková mrtvola nebude. Z výpisu v HomeAssistant jsem zjistil, že naposledy byl stav baterie 68%, což je zvláštní, protože je stanice stále připojená k adaptéru.
+
+Rozhodl jsem se nebádat a stanici nahradit jinou deskou Heltec, kterou jsem měl. Ukázalo se ale, že jde o verzi V2, která je zcela nekompatibilní a navíc už není oficiálně projektem Meshtastic podporována. Nebudu tady popisovat kompilaci pro V2 a pokusy vše i přez to zprovoznit. Nepovedlo se to. Heltec V2 se s novým FW choval od začátku divně.
+
+Vrátil jsem se tedy k původní desce. Změřil jsem vstupní napětí (5V) a napětí za stabilizátorem (3.3V). To se zdálo Ok, ale nejspíš jen na multimetru. Po připojení částečně nabitého článku začala stanice normálně fungovat. Překlenul jsem tedy nabíjení pomocí desky pro malé power banky, kterou jsem stahovacím páskem přikurtoval k článku. A jede to.
+
+![bypas nabijeciho obvodu](oprava/ohm1_oprava_nabijeni.jpg)
+
+Hledal jsem zmínky o podobném problému na internetu, ale bohužel neúspěšně. Všude se píše o problému s USB C - C kabely, ale o nefunkčním nabíjení ne. Nicméně mezi změnami v posledí HW verzi V3.2 je také jiný nabíjecí obvod LGS4056H. Takže tam asi nějaké problémy byly.
+
 # ToDo
 
 - [ ] popsat nastavení statického nodu
