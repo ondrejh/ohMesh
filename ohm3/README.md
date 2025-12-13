@@ -35,6 +35,31 @@ Pozn.:
 1) Všiml jsem si, že zapojení úplně nesedí se souborem varian.h. Tam je GP2 připojené na DIO2, místo na BUSY. Nicméně to funguje. Na dalším řádku se totiž uvádí ```#define SX126X_BUSY LORA_DIO2```, takže asi proto.
 2) Na breadboardu se mi odpojil GP15 - RESET, a zařízení vesele funguje dál. Kdyby bylo třeba šetřit GPIO, šlo by to asi nastavit unset.
 
+### Nastavení pomocí meshtastic python cli
+
+Nastavení regionu a presetu:
+``` code
+meshtastic --port /dev/ttyACM0 \
+  --set lora.region EU_868 \
+  --set lora.modem_preset MEDIUM_FAST \
+  --reboot
+```
+
+Nastavení jména nodu:
+``` code
+meshtastic --port /dev/ttyACM0 \
+  --set device.node_info.long_name "My New Node" \
+  --set device.node_info.short_name "MNND" \
+  --reboot
+```
+
+Nastavení defaultního primárního kanálu:
+``` code
+meshtastic --port /dev/ttyACM0 \
+  --ch-index 0
+  --ch-set name MediumFast
+  --ch-set psk default
+```
 
 ## Připojení čidla prostředí BME280
 

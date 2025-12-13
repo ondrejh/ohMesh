@@ -2576,6 +2576,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "v0.2 - LORA_BUSY connected instead of LORA_DI02\n\nv0.1 - initial version\n  known error: Need to connect LORA_BUSY and LORA_DI02"
+		(exclude_from_sim no)
+		(at 19.05 186.436 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0cf4b0d8-db5e-46ea-9d01-8bdaa68c817e")
+	)
 	(text "I2C Telemetry"
 		(exclude_from_sim no)
 		(at 267.716 124.968 0)
@@ -2775,16 +2786,6 @@
 			(type default)
 		)
 		(uuid "1c9a7957-effe-496d-99ee-7019fa1a8c1b")
-	)
-	(wire
-		(pts
-			(xy 92.71 156.21) (xy 100.33 156.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1edeb690-32d3-4db2-aad2-4f6092951723")
 	)
 	(wire
 		(pts
@@ -3388,6 +3389,16 @@
 	)
 	(wire
 		(pts
+			(xy 125.73 163.83) (xy 133.35 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7b3f7a9-7e4e-440a-870a-6398b3352036")
+	)
+	(wire
+		(pts
 			(xy 228.6 129.54) (xy 241.3 129.54)
 		)
 		(stroke
@@ -3694,7 +3705,7 @@
 			)
 		)
 	)
-	(global_label "LORA_DIO2"
+	(global_label "LORA_BUSY"
 		(shape input)
 		(at 41.91 62.23 180)
 		(fields_autoplaced yes)
@@ -3706,7 +3717,7 @@
 		)
 		(uuid "5a167bdb-3db6-4989-890e-944297df6d25")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 29.872 62.23 0)
+			(at 29.4269 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3782,28 +3793,6 @@
 			)
 		)
 	)
-	(global_label "LORA_DIO2"
-		(shape input)
-		(at 92.71 156.21 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.1684 1.1684)
-			)
-			(justify right)
-		)
-		(uuid "756de71f-6307-4a0d-9e0e-ec1bf0c94336")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.672 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "VBUS"
 		(shape input)
 		(at 69.85 31.75 90)
@@ -3817,6 +3806,28 @@
 		(uuid "8a7944fc-6511-4966-8f0f-aa2feb5a3b80")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 69.85 25.4432 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "LORA_BUSY"
+		(shape input)
+		(at 133.35 163.83 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.1684 1.1684)
+			)
+			(justify left)
+		)
+		(uuid "9216a439-42bc-4c59-bc10-cf68349618b3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 145.8331 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5490,7 +5501,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123F"
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 236.855 87.63 0)
 			(effects
 				(font
